@@ -1,11 +1,6 @@
-Here's the reformatted **Markdown version** of the project explanation for your **`README.md`**, including a note about unlocking a locked Python virtual environment:
-
----
-
-```markdown
 # **Phishing Email Detection Using Machine Learning**
 
-This project builds a phishing email detection system using machine learning techniques. It uses Natural Language Processing (NLP) for text vectorization and a Random Forest classifier (or other ML models) for classification. The goal is to detect whether an email is a phishing email or legitimate based on its content.
+This project builds a phishing email detection system using machine learning techniques. It uses Natural Language Processing (NLP) for text vectorization and Random Forest classifier (or any other ML model) for classification. The goal is to detect whether an email is a phishing email or legitimate based on its content.
 
 ---
 
@@ -20,7 +15,6 @@ This project builds a phishing email detection system using machine learning tec
   - [Step 3: Train the Model](#step-3-train-the-model)
   - [Step 4: Make Predictions](#step-4-make-predictions)
 - [How It Works](#how-it-works)
-- [Troubleshooting Virtual Environment](#troubleshooting-virtual-environment)
 - [How to Contribute](#how-to-contribute)
 - [License](#license)
 
@@ -34,8 +28,8 @@ This project detects phishing emails using machine learning. It involves several
 
 ## **Features**
 - **Email Classification**: Classify emails into "Phishing" or "Not Phishing" based on their content.
-- **Text Preprocessing**: Converts raw email text into a feature vector using TF-IDF (Term Frequency - Inverse Document Frequency).
-- **Model Training**: Train a machine learning model using algorithms like Random Forest, Logistic Regression, etc.
+- **Text Preprocessing**: The raw email text is converted into a feature vector using TF-IDF (Term Frequency - Inverse Document Frequency).
+- **Model Training**: Train a machine learning model using various algorithms such as Random Forest, Logistic Regression, etc.
 - **Prediction**: Predict whether a new email is phishing based on the trained model.
 
 ---
@@ -45,7 +39,7 @@ This project detects phishing emails using machine learning. It involves several
 - **Scikit-learn**: Library for machine learning algorithms.
 - **Pandas**: Data manipulation and analysis.
 - **NumPy**: Library for numerical computing.
-- **Flask** (optional): Can deploy the model as a web service.
+- **Flask** (optional): Can be used to deploy the model as a web service.
 - **Pickle**: For saving and loading the trained model.
 
 ---
@@ -56,8 +50,7 @@ This project detects phishing emails using machine learning. It involves several
 ```bash
 git clone https://github.com/yourusername/phishing-email-detection.git
 cd phishing-email-detection
-```
----
+
 
 ### **2. Set up a Virtual Environment (optional but recommended)**
 ```bash
