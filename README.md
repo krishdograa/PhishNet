@@ -57,6 +57,7 @@ This project detects phishing emails using machine learning. It involves several
 git clone https://github.com/yourusername/phishing-email-detection.git
 cd phishing-email-detection
 ```
+---
 
 ### **2. Set up a Virtual Environment (optional but recommended)**
 ```bash
