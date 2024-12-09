@@ -146,7 +146,8 @@ If the virtual environment becomes "locked" (you cannot install or uninstall pac
 3. Recreate and activate the virtual environment:
    ```bash
    python -m venv venv
-   venv\Scripts\activate  # For Windows u need to enter that in powershell with admin previliges
+   cd venv\bin
+   \Activate or .\Activate.ps1 # For Windows u need to enter that in powershell 
    source venv/bin/activate  # For macOS/Linux
    ```
 4. Reinstall dependencies:
@@ -164,6 +165,8 @@ If the virtual environment becomes "locked" (you cannot install or uninstall pac
 4. **Create a pull request** with a detailed description of the changes.
 
 ---
+Execution Policies:
+In PowerShell, you may encounter execution policy restrictions that prevent scripts from running. You need to set the execution policy appropriately (e.g., using Set-ExecutionPolicy Unrestricted -Scope Process) to allow the execution of Activate.ps1.
 
 ## **License**
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
