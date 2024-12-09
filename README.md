@@ -59,7 +59,9 @@ python -m venv venv
 Activate the virtual environment:
 - **Windows**: 
   ```bash
-  venv\Scripts\activate
+  venv\bin
+  cd venv\bin
+  .\Activate or .\Activate.ps1 # For Windows u need to enter that in powershell 
   ```
 - **macOS/Linux**: 
   ```bash
