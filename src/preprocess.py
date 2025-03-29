@@ -2,17 +2,26 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
 
+def combine_features(row):
+    # Combine relevant text features for better context
+    return f"{row['subject']} {row['body']} {row['urls']}"
+
 def preprocess_data(input_file, output_file):
     # Load the CSV file
     data = pd.read_csv(input_file)
 
-    # Ensure the dataset has 'text' and 'label' columns
-    if 'text' not in data.columns or 'label' not in data.columns:
-        raise ValueError("Input CSV must have 'text' and 'label' columns.")
+    # Ensure the necessary columns exist
+    required_columns = ['subject', 'body', 'urls', 'label']
+    for col in required_columns:
+        if col not in data.columns:
+            raise ValueError(f"Input CSV must have '{col}' column.")
 
-    # Vectorize the text using TF-IDF
+    # Combine key features into a single text field
+    data['combined_text'] = data.apply(combine_features, axis=1)
+
+    # Vectorize the combined text using TF-IDF (sparse matrix format)
     vectorizer = TfidfVectorizer()
-    X = vectorizer.fit_transform(data['text']).toarray()
+    X = vectorizer.fit_transform(data['combined_text'])
 
     # Extract labels
     y = data['label'].values
