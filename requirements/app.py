@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 app = Flask(__name__)
 
 # Route to render the web page
-@app.route('/', methods=['GET'])
+@app.route('/predict', methods=['POST'])
 def home():
     return render_template('index.html')  # Now renders the front-end
 
