@@ -1,15 +1,13 @@
 import sys
 import os
 from flask import Flask, request, jsonify, render_template
-from src.predict import predict_email  # Now it should find the src folder
-
-# Ensure the src folder is accessible
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from predict import predict_email
 
 app = Flask(__name__)
 
 # Route to render the web page
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')  # Now renders the front-end
 
