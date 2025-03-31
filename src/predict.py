@@ -1,14 +1,19 @@
 import pickle
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 def predict_email(model_file, email_text):
     # Load the trained model and vectorizer
-    with open(model_file, "rb") as f:
-        model, vectorizer = pickle.load(f)  # Load both model and vectorizer
-
-    # Preprocess email text using the loaded vectorizer
-    email_vector = vectorizer.transform([email_text])  # Vectorize the input email
-
-    # Make a prediction
+    try:
+        with open(model_file, "rb") as f:
+            model, vectorizer = pickle.load(f)
+    except Exception as e:
+        print(f"Error loading model: {e}")
+        return "Error: Unable to load model"
+        
+    # Vectorize the input email
+    email_vector = vectorizer.transform([email_text])
+        
+    # Make prediction
     prediction = model.predict(email_vector)
     
     return "Phishing" if prediction[0] == 1 else "Not Phishing"
