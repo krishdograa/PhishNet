@@ -1,8 +1,9 @@
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+import sys
+import os
 from flask import Flask, request, jsonify
 from src.predict import predict_email  # Importing the predict_email function
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 app = Flask(__name__)
 
