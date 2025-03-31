@@ -1,10 +1,10 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
-from predict import predict_email
-
 from flask import Flask, request, jsonify
 
+# Add src folder to Python path for imports
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from predict import predict_email  # Importing the predict_email function
 
 app = Flask(__name__)
 
@@ -14,8 +14,10 @@ def predict():
     if not email:
         return jsonify({"error": "Email text is required"}), 400
 
-    # Call the prediction function with the email text, model is loaded in predict.py
-    result = predict_email("models/phishing_detector.pkl", email)
+    # Adjusted model file path (relative to requirements folder)
+    model_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'models', 'phishing_detector.pkl'))
+    
+    result = predict_email(model_file_path, email)
     return jsonify({"prediction": result})
 
 @app.route('/', methods=['GET'])

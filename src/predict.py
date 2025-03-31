@@ -5,11 +5,11 @@ def predict_email(model_file, email_text):
     # Load the trained model and vectorizer
     try:
         with open(model_file, "rb") as f:
-            model, vectorizer = pickle.load(f)
+            model, vectorizer = pickle.load(f)  # Expecting two objects: model and vectorizer
     except Exception as e:
-        print(f"Error loading model: {e}")
+        print(f"Error loading model: {e}")  # Print error for debugging
         return "Error: Unable to load model"
-        
+    
     # Vectorize the input email
     email_vector = vectorizer.transform([email_text])
         
